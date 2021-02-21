@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\michael\\Documents\\Godot\\CarTest\\CarTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\michael\\Documents\\Godot\\CarTest\\CarTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\michael\\Documents\\Godot\\CarTest\\CarTest.csproj",
+        "projectName": "CarTest",
+        "projectPath": "C:\\Users\\michael\\Documents\\Godot\\CarTest\\CarTest.csproj",
+        "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\michael\\Documents\\Godot\\CarTest\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "target": "Package",
+              "version": "[1.0.0, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

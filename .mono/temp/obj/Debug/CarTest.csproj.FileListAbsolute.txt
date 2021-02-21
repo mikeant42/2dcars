@@ -1,0 +1,8 @@
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\obj\Debug\CarTest.csprojAssemblyReference.cache
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\obj\Debug\CarTest.AssemblyInfoInputs.cache
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\obj\Debug\CarTest.AssemblyInfo.cs
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\obj\Debug\CarTest.csproj.CoreCompileInputs.cache
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\bin\Debug\CarTest.dll
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\bin\Debug\CarTest.pdb
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\obj\Debug\CarTest.dll
+C:\Users\michael\Documents\Godot\CarTest\.mono\temp\obj\Debug\CarTest.pdb

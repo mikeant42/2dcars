@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ii/et9RF5WidQ010gFZFn3Vkkq7H283do6sZDj+50ObBsnxtWwXw6VMpOaAVJQH+2QzXSLMuMgzszswXqUQcrg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\michael\\Documents\\Godot\\CarTest\\CarTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\michael\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\michael\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.0\\microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
