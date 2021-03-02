@@ -19,6 +19,8 @@ func _ready() -> void:
 			bounds_max.y = int(pos.y)
 	
 	# Replace all empty tiles with the provided navigation tile
+	print(bounds_max)
+	print(bounds_min)
 	for x in range(bounds_min.x, bounds_max.x):
 		for y in range(bounds_min.y, bounds_max.y):
 			if get_cell(x, y) == -1:

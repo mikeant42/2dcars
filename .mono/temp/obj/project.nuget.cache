@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ii/et9RF5WidQ010gFZFn3Vkkq7H283do6sZDj+50ObBsnxtWwXw6VMpOaAVJQH+2QzXSLMuMgzszswXqUQcrg==",
+  "dgSpecHash": "qVBVUzBYnyhqJgBT3W0YN5AYjIdcNV4YDwPw7p/T//lUwi2ZM5te8nmzm556MUyY51+x2cPX7yAb20YAcrPEDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\michael\\Documents\\Godot\\CarTest\\CarTest.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\michael\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
-    "C:\\Users\\michael\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.0\\microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/dreadpiratemike/Documents/GodotGames/2dcars/CarTest.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
