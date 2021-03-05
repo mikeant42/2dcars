@@ -241,7 +241,7 @@ position = Vector2( -362.17, -1261.45 )
 position = Vector2( -1141.48, -1106.2 )
 
 [node name="PoliceCar2" parent="AI" instance=ExtResource( 5 )]
-position = Vector2( -922.664, -192.893 )
+position = Vector2( -1141.48, -1106.2 )
 
 [node name="Line2D" type="Line2D" parent="."]
 width = 10.465
@@ -267,14 +267,6 @@ flip_h = true
 script = ExtResource( 10 )
 playerPath = NodePath("../../AI/PoliceCar")
 
-[node name="Sprite3" type="Sprite" parent="Viewport"]
-position = Vector2( 200, 200 )
-rotation = 1.5708
-texture = ExtResource( 9 )
-flip_h = true
-script = ExtResource( 10 )
-playerPath = NodePath("../../AI/PoliceCar2")
-
 [node name="Sprite" type="Sprite" parent="Viewport"]
 position = Vector2( 200, 200 )
 rotation = 1.5708
@@ -286,3 +278,8 @@ playerPath = NodePath("../../Car")
 [node name="Camera2D" type="Camera2D" parent="Viewport/Sprite"]
 current = true
 zoom = Vector2( 2.2, 2.2 )
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Track" type="Line2D" parent="."]
+points = PoolVector2Array( -576.169, -1854.84, -409.86, -3669.13, -893.67, -5921.87, -263.71, -8890.24, -233.472, -11420.2, -273.791, -14277.7, -6.68652, -17553.5, -137.718, -18621.9 )

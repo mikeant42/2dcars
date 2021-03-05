@@ -9,9 +9,6 @@ public class PlayerCar : Car
 		if (Input.IsActionPressed("steer_right")) turn +=1;
 		if (Input.IsActionPressed("steer_left")) turn -= 1;
 		
-
-		
-		
 		steerAngle = turn * Mathf.Deg2Rad(steeringAngle);
 		//GD.Print(Mathf.Rad2Deg(steerAngle));
 		//velocity = Vector2.Zero;

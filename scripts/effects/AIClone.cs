@@ -11,11 +11,12 @@ public class AIClone : Node2D
     public override void _Ready()
     {
         player = (AICar)GetNode(playerPath);
+        SetAsToplevel(true);
     }
 
     public override void _Process(float delta)
     {
-        Position = player.Position;
+        GlobalPosition = player.GlobalPosition;
 
         Rotation = player.Rotation + Mathf.Deg2Rad(90);
     }

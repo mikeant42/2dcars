@@ -60,7 +60,7 @@ public class Car : KinematicBody2D
 
     }
 
-    private void _CalcSteering(float delta)
+    public Vector2 _CalcSteering(float delta)
     {
         /* alternative steering / wheelbase from engineeringdotnet.blogspot.com
         B = (b-r) cos(steerAngle)
@@ -68,6 +68,7 @@ public class Car : KinematicBody2D
         b is the size of the baseline
         r = carSpeed * dt is the distance the rear wheel moves this frame
         */ 
+        Vector2 final = Vector2.Zero;
 
         var rearWheel = Position - Transform.x * wheelBase / 2;
         var frontWheel = Position + Transform.x * wheelBase / 2;
@@ -87,14 +88,16 @@ public class Car : KinematicBody2D
         // Reverse heading based on the forward or reverse acceleration
         var d = newHeading.Dot(velocity.Normalized());
         if (d > 0)
-            velocity = velocity.LinearInterpolate(newHeading * velocity.Length(), traction);
+            final = velocity.LinearInterpolate(newHeading * velocity.Length(), traction);
         if (d < 0)
-            velocity = -newHeading * Math.Min(velocity.Length(), maxSpeedReverse);
+            final = -newHeading * Math.Min(velocity.Length(), maxSpeedReverse);
         
         Rotation = newHeading.Angle();
+
+        return final;
     }
 
-    private void _ApplyFrictionAndDrag()
+    public void _ApplyFrictionAndDrag()
     {
         // Set minimum speed
         if (velocity.Length() < 1)
@@ -137,7 +140,7 @@ public class Car : KinematicBody2D
         _Input();
         _ApplyFrictionAndDrag();
         if (doesDrift) _ApplyDrift();
-        _CalcSteering(delta);
+        velocity = _CalcSteering(delta);
         _RotateWheels();
 
         velocity += acceleration * delta;

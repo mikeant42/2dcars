@@ -1,18 +1,23 @@
-# Car game test 
+# carsonmars
+
 
 # TODO
-- car deformation (using shaders, sprite interpolation with different deform stages??)
-- high speed collisions
-- car explosions
-- dirt/dust, tracks, rain
-- dialogue system
-- ui and title screen
-- ai accelerates too fast
-    - the separation behavior makes them jerk around a bit, and they do things that cars can't do
-    - ai needs to handle crashes e.g. new behavior that reverses then transitions to default
-- mouse steering??
-- player needs more drifting (complete overhaul of player car physics)
-- method to send ai vehicles spinning/slipping around
+1. game mechanics. build the game around car chases? races? pickups? what sort of game will this be? what art and flow do i need in order to make it fun?
+2. ai work
+3. broken reflections in puddles for anyone but the player (medium)
+4. overall art/design work
+
+- blade-runner top down asthetic - find reference art
+
+# ai
+- wobbly steering when close to destination
+- handle crashes e.g. reverse when needed
+
+# general
+- car deformation (using shaders, sprite interpolation with different deform stages)  (easy/medium)
+- car explosions (easy/medium)
+- ui and title screen (medium)
+- player needs more drifting (complete overhaul of player car physics) (medium/hard)
 
 # Civilian Cars
 - use a flow map + separate behaviors??
