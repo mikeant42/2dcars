@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public class PlayerClone : Node2D
+public class PlayerClone : Sprite
 {
     [Export]
     public NodePath playerPath;
 
-    private Car player;
+    private PlayerCar player;
     public override void _Ready()
     {
-        player = (Car)GetNode(playerPath);
+        player = (PlayerCar)GetNode(playerPath);
     }
 
     public override void _Process(float delta)

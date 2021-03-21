@@ -10,15 +10,15 @@ seamless = true
 noise = SubResource( 1 )
 
 [sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("Viewport")
+viewport_path = NodePath("WaterViewport")
 
 [resource]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
 shader_param/amount = 0.035
-shader_param/water_color = Color( 0.0627451, 0.505882, 0.658824, 0.501961 )
+shader_param/water_color = Color( 0.435294, 0.4, 0.384314, 0.780392 )
 shader_param/distortion_scale = Vector2( 1.157, 1.202 )
-shader_param/distortion_intensity = 0.043
+shader_param/distortion_intensity = 0.048
 shader_param/distortion_speed = 0.079
 shader_param/refraction_mag = 30.0
 shader_param/reflection_viewport = SubResource( 3 )

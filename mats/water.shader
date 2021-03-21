@@ -33,12 +33,8 @@ void fragment()
 	color.rgb = color.rgb * (1.0 - reflection.a) + reflection.rgb * reflection.a;
 	color.rgb = mix(color.rgb, new_water.rgb, water_color.a);
     COLOR = color;
+	
 
-	// modulate instead??
-	if (color.a > 0.5)
-	{
-		//COLOR.a = 0.5;
-	}
-	//COLOR.a = 0.5;
+
 
 }

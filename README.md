@@ -1,17 +1,21 @@
-# carsonmars
-
+# racing cars
+not sure where to go with this one, just has some ai, basic driving and other mini projects in it.
 
 # TODO
-1. game mechanics. build the game around car chases? races? pickups? what sort of game will this be? what art and flow do i need in order to make it fun?
+1. game mechanics. 
 2. ai work
-3. broken reflections in puddles for anyone but the player (medium)
-4. overall art/design work
+3. overall art/design work
 
-- blade-runner top down asthetic - find reference art
+# art
+- neon with patterns
+- digital art, using 3d renders for models
+- sharp polygons, square, triangular models with no curves
+
 
 # ai
 - wobbly steering when close to destination
 - handle crashes e.g. reverse when needed
+- add racing behavior
 
 # general
 - car deformation (using shaders, sprite interpolation with different deform stages)  (easy/medium)

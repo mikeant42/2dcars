@@ -2,23 +2,21 @@ using Godot;
 using System;
 
 
-public class AIClone : Node2D
+public class AIClone : Sprite
 {
     [Export]
-    public NodePath playerPath;
+    public AICar realCar;
 
-    private AICar player;
     public override void _Ready()
     {
-        player = (AICar)GetNode(playerPath);
         SetAsToplevel(true);
     }
 
     public override void _Process(float delta)
     {
-        GlobalPosition = player.GlobalPosition;
+        GlobalPosition = realCar.GlobalPosition;
 
-        Rotation = player.Rotation + Mathf.Deg2Rad(90);
+        Rotation = realCar.Rotation + Mathf.Deg2Rad(90);
     }
 
 

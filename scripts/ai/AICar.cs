@@ -5,13 +5,13 @@ using System;
 
 // TODO: Stop when a) player is slowed/stopped and b) we are in a certain radius of the player
 
-// TODO: Race behaviors (just path following??)
+// TODO: Race behaviors 
 
 
-public class AICar : KinematicBody2D
+public class AICar : Car
 {
     private Navigation2D navigation;
-    private Car player;
+    private PlayerCar player;
     private Line2D line;
     private Godot.Collections.Array otherCars;
 
@@ -25,12 +25,8 @@ public class AICar : KinematicBody2D
     float maxSpeed = 2500;
     float maxForce = 1700f;
 
-    Vector2 desiredVelocity = Vector2.Zero;
-    Vector2 velocity = Vector2.Zero;
-
     float radius;
 
-    private Vector2 acceleration = Vector2.Zero;
     private float friction = -0.9f;
     private float drag = -0.000015f;
 
@@ -57,7 +53,7 @@ public class AICar : KinematicBody2D
 
 
         navigation = (Navigation2D)GetNode("../../Navigation2D");
-        player = (Car)GetNode("../../Car");
+        player = (PlayerCar)GetNode("../../Car");
         line = (Line2D)GetNode("../../Line2D");
 
         pathingTimer = (Timer)GetNode("PathingRefresh");
@@ -110,10 +106,13 @@ public class AICar : KinematicBody2D
         acceleration = Vector2.Zero;
         float steering = GetSeekSteeringAngle();
 
+        //float sep = GetSeparate();
+        //steering += sep;
+
         acceleration += GetFrictionAndDrag(delta);
         acceleration += Transform.x * maxSpeed;
 
-        acceleration += GetSeparateVelocity();
+        acceleration += GetSeparate();
         //acceleration += steering;
 
         //acceleration = acceleration.LinearInterpolate(acceleration.Length() * GetHeading(delta), 0.1f);
@@ -135,7 +134,7 @@ public class AICar : KinematicBody2D
     }
 
 
-    // returns a velocity vector
+    // takes a turn angle and calculates current velocity, rotation
     private Vector2 _CalcSteering(float delta, float steering)
     {
 
@@ -146,10 +145,10 @@ public class AICar : KinematicBody2D
 
         float slipSpeed = 600; // speed where traction is reduced
         float tractionFast = 0.001f;
-        float tractionSlow = 0.7f;
+        float tractionSlow = 0.9f;
 
         float superSlipSpeed = 1500;
-        float tractionSuperFast = 0.03f;
+        float tractionSuperFast = 0.025f;
         Vector2 final = Vector2.Zero;
 
         //GD.Print(steering);
@@ -194,10 +193,10 @@ public class AICar : KinematicBody2D
     }
 
     // add a flee velocity from close vehicles 
-    // multiplier weighs the velocity more heavily
-    private Vector2 GetSeparateVelocity(float mult = 1)
+    // multiplier weighs the output
+    private Vector2 GetSeparate(float mult = 1)
     {
-        float desiredSeparation = radius * 12; // TODO FIX THIS (r)
+        float desiredSeparation = radius * 12;
         Vector2 sum = Vector2.Zero;
         int count = 0;
         foreach (KinematicBody2D car in otherCars)
@@ -225,13 +224,14 @@ public class AICar : KinematicBody2D
         }
         
         return sum;
+        //return DesiredToTurn(sum);
     }
 
 
     private float GetSeekSteeringAngle(float mult=1)
     {
         float d = GlobalPosition.DistanceTo(followPos.GlobalPosition);
-        desiredVelocity = followPos.GlobalPosition - GlobalPosition;
+        Vector2 desiredVelocity = followPos.GlobalPosition - GlobalPosition;
 
         desiredVelocity = desiredVelocity.Normalized() * maxSpeed; // set magnitude        
 
@@ -239,18 +239,20 @@ public class AICar : KinematicBody2D
         Vector2 steering = desiredVelocity - velocity;
         steering.Clamped(maxForce);
 
-        
-        // turn angle will always be [1,-1]
-        // ty stackoverflow!
-        var spaceBtwen = Mathf.Clamp(desiredVelocity.Normalized().Dot(velocity.Normalized()), -1, 1); // space between the angle of our desired and current velocities
 
+        return DesiredToTurn(desiredVelocity) * mult;
+    }
+
+
+    // converts a desired velocity into the turn angle for the car [-1, 1]
+    private float DesiredToTurn(Vector2 desired)
+    {
+        var spaceBtwen = Mathf.Clamp(desired.Normalized().Dot(velocity.Normalized()), -1, 1); // space between the angle of our desired and current velocities
+        // ty stackoverflow!
         var fullSteers = Mathf.Acos(spaceBtwen) / maxSteerAngle;
-        var steer = leftperp(desiredVelocity.Normalized()).Dot(velocity.Normalized()) * fullSteers;
-        GD.Print(steer);
+        var steer = leftperp(desired.Normalized()).Dot(velocity.Normalized()) * fullSteers;
         steer = Mathf.Clamp(steer, -1, 1);
 
-
-        //return steering * mult;
         return steer;
     }
 
